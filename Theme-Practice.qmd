@@ -1,0 +1,33 @@
+---
+title: "Make a ggplot theme"
+author: "Nicole Pepper"
+format: html
+editor: visual
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#Load libraries
+# Clean up environment
+rm(list = ls())
+
+# General use packages:
+library(tidyverse)
+library(palmerpenguins)
+
+```
+
+
+```{r}
+ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) + 
+  geom_point() + 
+  labs(title = "Penguins!") + 
+  theme(title = element_text(size = 16, color = "purple"),
+        plot.background = element_rect(fill = "black"),
+        panel.background = element_rect(fill = "gray20"),
+        axis.text = element_text(color = "yellow"),
+        panel.grid.major = element_line(color = "green"),
+        panel.grid.minor = element_line(color = "blue"))
+```
+
